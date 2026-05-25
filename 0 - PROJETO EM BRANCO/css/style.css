@@ -1,0 +1,406 @@
+/* Reset Moderno */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #cc752e; /* Verde Esmeralda */
+    --dark-color: #1a1a1a;
+    --light-bg: #f8f9fa;
+    --text-color: #333;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Tipografia Geral */
+a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* AREA DO MENU */
+#caixa_menu {
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px); /* Efeito de vidro */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+#menu {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#logo {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
+}
+
+/* AREA DO MENU - ESTILO PROFISSIONAL */
+
+.item_menu {
+    position: relative; /* Necessário para posicionar a linha animada */
+    width: auto; /* Deixa o menu se ajustar ao texto */
+    min-width: 120px;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif; /* Fonte mais limpa que a cursive */
+    font-size: 18px;
+    color: #ffffff;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Estilizando o link dentro do menu */
+.item_menu a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+/* Criando a linha animada com pseudo-elemento */
+.item_menu::after {
+    content: '';
+    position: absolute;
+    bottom: 20px; /* Posição da linha */
+    left: 50%;
+    width: 0; /* Começa com largura zero */
+    height: 2px;
+    background-color: var(--primary-color); /* Usa o verde esmeralda definido antes */
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Efeito elástico */
+    transform: translateX(-50%);
+}
+
+/* Efeito Hover Profissional */
+.item_menu:hover {
+    color: var(--primary-color);
+}
+
+.item_menu:hover a {
+    color: var(--primary-color);
+}
+
+.item_menu:hover::after {
+    width: 70%; /* A linha expande até 70% da largura do item */
+}
+
+/* Ajuste adicional para o Logo não ficar solto */
+#logo {
+    transition: transform 0.5s ease;
+}
+
+#logo:hover {
+    transform: scale(1.1) rotate(5deg); /* Pequeno pulo e rotação no logo */
+}
+/* CABEÇALHO (Hero Section) */
+/* Customização do Header */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Adicionando um gradiente sobre a imagem para dar leitura ao texto */
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%), 
+                      url('../imagens/Livraria-Vila-JK_083-FG.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 85vh; /* Ocupa 85% da altura da tela */
+}
+
+#caixa_header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    padding-left: 20px;
+}
+
+#slogan {
+    background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+    backdrop-filter: blur(15px); /* Efeito de vidro embaçado */
+    -webkit-backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 600px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease-out; /* Animação ao carregar */
+}
+
+#slogan h1 {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 3.5rem;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+#slogan p {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Botão Estilizado */
+.btn_header {
+    display: inline-block;
+    background-color: #2ecc71; /* Verde esmeralda */
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+}
+
+.btn_header:hover {
+    background-color: #27ae60;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(46, 204, 113, 0.4);
+}
+
+/* Animação de Entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SEÇÃO BIBLIOTECA */
+#empresa {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+#caixa_empresa {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.titulo span {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dark-color);
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.titulo span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+}
+
+/* GRID DE PRODUTOS (CARDS) */
+.produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Espaçamento moderno entre cards */
+}
+
+.caixa_produto {
+    width: 280px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: var(--transition);
+    border: 1px solid #eee;
+}
+
+.caixa_produto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.caixa_titulo {
+    background-color: var(--dark-color);
+    color: #fff;
+    padding: 15px;
+    font-size: 1.1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.caixa_imagem {
+    width: 100%;
+    height: 180px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fdfdfd;
+}
+
+.caixa_imagem img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.caixa_texto {
+    padding: 20px;
+    color: #666;
+    font-size: 0.95rem;
+    text-align: center;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* FOOTER */
+#footer {
+    background-color: var(--dark-color);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+#caixa_footer {
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+}
+
+/* Esconder elementos antigos não utilizados ou problemáticos */
+.seta { display: none; }
+
+
+/* SEÇÃO SOBRE */
+#sobre {
+    padding: 80px 0;
+    background-color: #f8f9fa; /* Fundo levemente cinza para separar das outras seções */
+}
+
+#caixa_sobre {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.conteudo_flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 0 20px;
+}
+
+.texto_sobre {
+    flex: 1;
+}
+
+.texto_sobre h2 {
+    font-size: 2rem;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+.texto_sobre p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.imagem_sobre {
+    flex: 1;
+}
+
+.imagem_sobre img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* SEÇÃO CONTATOS */
+#contatos {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.grid_contatos {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.card_contato {
+    flex: 1;
+    background-color: var(--dark-color);
+    color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: var(--transition);
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.card_contato:hover {
+    transform: translateY(-5px);
+    background-color: #222;
+}
+
+.card_contato h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.card_contato p {
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* Ajuste Responsivo para Mobile */
+@media (max-width: 768px) {
+    .conteudo_flex, .grid_contatos {
+        flex-direction: column;
+    }
+    
+    #menu {
+        font-size: 12px;
+    }
+}
